@@ -1,6 +1,4 @@
-# leetcode
-leetcode 刷题记录
-
+# leetcode 刷题记录
 刷题的方法：
 
 第一遍：在大脑中知道解体方法，可大致描述出来。要达到一看到题，就知道大致解题方向的地步。
@@ -13,7 +11,7 @@ leetcode 刷题记录
 第四遍(Option): 使用不同的语言再实现一遍。同一道题的不同解法。（不同解法之间的相互变换）
 
 ---
-花花酱提供的刷题方体方法
+### 花花酱提供的刷题方体方法
 - 要刷多少题
     - 每个类型题10~20(动态规划多多益善)
     - 总共200~300题
@@ -32,3 +30,9 @@ leetcode 刷题记录
     - 代码风格：
         - 1. 一致性：命名/缩进/换行
         - 2. 有意义的变量名
+---
+### 小浩的刷题指导
+[小白为了面试如何刷题？](https://mp.weixin.qq.com/s?__biz=MzI2NjI5MzU2Nw==&mid=2247484610&idx=1&sn=5eacddaf9a3460f762f3358700675366&chksm=ea911c92dde695843afd6ae475de28b6eb7a2c665e0cf7ee187fadefb2f5c84764bec423fd2b&mpshare=1&scene=1&srcid=0510li97q2QYHjzNTYF3ibDf&sharer_sharetime=1589088858763&sharer_shareid=a600b6210a5da2df27ef87c49cf6f859&key=1afad850a7d33676db4db8437b04750cab2979c06169edca723616b420e898056a060bb76a67d35ac09a93b55fac3c6dd3a339d012d972698b4c0f394c67c45f2d38b4739076ff6f5dad6f9bb9b15d84&ascene=1&uin=MjcxNDI2ODQ0Mg%3D%3D&devicetype=Windows+10+x64&version=62090070&lang=zh_CN&exportkey=AVbYmi7aj19dH3ylF32CCV8%3D&pass_ticket=irxtw6bDyuRQNumOVCbHPV%2FnfpwK6cD7sNnRRPZb39ioX1OOh%2FGrwRU3p61RrOsl)
+
+其主旨为: **最少刷完前200道题**
+
