@@ -46,6 +46,10 @@
 
 先在纸上一小步一小步的画出来，找出操作规律，然后再写代码。
 
+*我的实现方法太低效了*
+
+要同时用递归的和非递归的方法完成
+
 ---
 
 ### 25. Reverse Nodes in K Group（hard)
@@ -104,5 +108,6 @@ Dividend = Dividor * 2^m + Dividor *2^n + ... + Dividor + y
 
 我能想到的知识暴力解法了
 
-实际的解法也不涉及任何算法思想。知识暴力求解是注意使用每个Word成都相同这个条件。
+暴力求解但是要注意使用每个Word长度都相同这个条件。
+发现一种不用compare_map的方法，牛逼！(https://leetcode.com/problems/substring-with-concatenation-of-all-words/discuss/13658/Easy-Two-Map-Solution-(C%2B%2BJava))
 
