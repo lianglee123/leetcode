@@ -22,9 +22,6 @@ class Solution:
         hi = len(nums) - 1
         while low < hi:
             mid = (low + hi) // 2 + 1  ## 要注意这里，不加1会造成死循环
-            print("hi: ", hi)
-            print("low: ", low)
-            print("mid: ", mid)
             if target < nums[mid]:
                 hi = mid - 1
             else:
