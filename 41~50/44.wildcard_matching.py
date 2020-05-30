@@ -3,7 +3,7 @@ from typing import List
 
 class Solution:
     """
-    Time Limit Exceeded Ansomer
+    Time Limit Exceeded Answer
     """
     def isMatch(self, s: str, p: str) -> bool:
         print("isMatch: ", s, p)
@@ -25,9 +25,10 @@ class Solution:
             else:
                 return False
 
+
 class Solution2:
     """
-    Time Limit Exceeded Ansomer
+    Time Limit Exceeded Answer
     """
 
     def isMatch(self, s: str, p: str) -> bool:
@@ -51,6 +52,31 @@ class Solution2:
             else:
                 return False
 
+
+class SolutionFiniteStateMachine:
+    """
+    不理解的答案
+    """
+    def isMatch(self, s, p):
+        transfer = {}
+        state = 0
+        for char in p:
+            if char == '*':
+                transfer[(state, char)] = state
+            else:
+                transfer[(state, char)] = state + 1
+                state += 1
+        accept = state
+        states = set(0)
+        for char in s:
+            _states = set()
+            for token in [char, '*', '?']:
+                for at in states:
+                    next_state = transfer.get((at, token))
+                    if next_state is not None:
+                        _states.add(next_state)
+            states = _states
+        return accept in state
 
 if __name__ == '__main__':
     s = Solution2().isMatch
