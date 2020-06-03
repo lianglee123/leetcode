@@ -77,7 +77,9 @@ backTrace, backTrace之前排序。
 #### Round1
 
 空间转换问题，把难的操作变为简单操作。
-
+法一：先上下转换，再对角线转换
+法二：![模拟法](./images/rotate_image.png)
+https://mp.weixin.qq.com/s?__biz=MzI2NjI5MzU2Nw==&mid=2247485331&idx=1&sn=ca09244eaa8de904844fd5e8ca7cd407&chksm=ea911fc3dde696d5077415e9ad97988a895a2354e72b989cfa2772978b07536652020c303aba&scene=126&sessionid=1591103755&key=b7b0d71aeeec04a335b60e3da584042475a8d92e68de77f891a4a0b7dc6cf3dd64ae87eb39ad131d75952094f02ce24cafa629a01db9ae6ecf923b7400f31b89e9ee8ca95f85df7a0073cafeb2e951e9&ascene=1&uin=MjcxNDI2ODQ0Mg%3D%3D&devicetype=Windows+10+x64&version=62090070&lang=zh_CN&exportkey=ASzcazw%2FDOH5lKodL6iXVEk%3D&pass_ticket=MM15MA1iWkPm6dGYW882Mg6c%2FrfX9NWGvArLE5uT7j2CBMTjLv4rVuuaaqs%2BJlws
 ---
 
 ### 49. Group Anagrams
