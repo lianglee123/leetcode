@@ -92,3 +92,6 @@ order by first and itera
 
 使用数学规律做
 
+这种结构就像加了索引一样
+
+
