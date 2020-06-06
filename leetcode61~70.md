@@ -43,7 +43,11 @@ rotate List， 先找到分割点，然后重新连接
 #### Round1
 
 暴力解法
+#### Round2
+其正则表达式为：
+[-+]?(([0-9]+(.[0-9]*)?)|.[0-9]+)(e[-+]?[0-9]+)?
 
+https://leetcode.com/problems/valid-number/discuss/23738/Clear-Java-solution-with-ifs
 ---
 
 ### 66. Plus One
@@ -68,6 +72,9 @@ easy
 
 hard, 但是也是常规的模拟做法
 
+#### Round 2
+把整个过程拆解后，也是非常简单的
+https://leetcode.com/problems/text-justification/discuss/24902/Java-easy-to-understand-broken-into-several-functions
 ---
 
 ### 69. Sqrt(x)
