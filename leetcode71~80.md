@@ -77,5 +77,8 @@
 Fuck， 回溯+搜索
 
 ### 80. Remove Duplicates from Sorted Array
+#### Round1
+参考26题，使用双指针。
+但是这道题使用使用双指针非常麻烦。应该使用逆向思维。
 
 #### Round2
