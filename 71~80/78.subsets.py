@@ -21,6 +21,17 @@ class Solution:
             temp.pop()
 
 
+class Solution2:
+    def subsets(self, nums):
+        if not nums:
+            return []
+        res, cur = [[]], []
+        for i in range(len(nums)):
+            print(res)
+            cur = [item + [nums[i]] for item in res]
+            res += cur
+        return res
+
 def p_m(m):
     if not m:
         return
@@ -30,6 +41,6 @@ def p_m(m):
 
 
 if __name__ == '__main__':
-    s = Solution().subsets
-    nums = [1, 2, 3]
+    s = Solution2().subsets
+    nums = [1, 2, 3, 4]
     p_m(s(nums))
