@@ -39,7 +39,7 @@ class SkipList:
             return x
 
     def Delete(self, key) -> bool:
-        updateNodes = [None] * self.LEVEL_LIMIT
+        updateNodes = [None] * self.LEVEL_LIMIT  # level--> Node 每一层所经过的Node
 
         # level向下降，x向右走, 记录走过的所有Node, 当建立新Node时，这些Node的层级有可能会被影响
         x = self.header
@@ -86,11 +86,6 @@ class SkipList:
             updateNodes[level].next[level] = newNode
 
         return newNode
-
-
-
-
-
 
     def __len__(self):
         return self.nodeCount
