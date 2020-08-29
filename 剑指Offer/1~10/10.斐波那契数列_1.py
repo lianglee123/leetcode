@@ -1,0 +1,23 @@
+from typing import *
+
+
+class Solution:
+    def fib(self, n: int) -> int:
+        if n <= 1:
+            return n
+        pre = 0
+        cur = 1
+        for i in range(2, n+1):
+            cur, pre = cur + pre, cur
+        return cur
+
+
+if __name__ == '__main__':
+    s = Solution().fib
+    print(s(0))
+    print(s(1))
+    print(s(2))
+    print(s(3))
+    print(s(4))
+    print(s(5))
+    print(s(6))

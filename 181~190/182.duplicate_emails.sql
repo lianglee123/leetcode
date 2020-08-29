@@ -1,0 +1,2 @@
+SELECT Email FROM Person AS P GROUP BY P.Email HAVING COUNT(Email) > 1;
+

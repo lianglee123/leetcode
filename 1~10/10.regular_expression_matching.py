@@ -1,3 +1,6 @@
+from functools import lru_cache
+
+
 class Solution:
     def isMatch(self, s: str, p: str) -> bool:
         if not p:

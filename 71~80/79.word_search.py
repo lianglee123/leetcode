@@ -37,6 +37,63 @@ class Solution:
         return res
 
 
+class Solution2:
+    def exist(self, board: List[List[str]], word: str) -> bool:
+        def dfs(i, j, k):
+            if not 0 <= i < len(board) or not 0 <= j < len(board[0]) or board[i][j] != word[k]:
+                return False
+            if k == len(word) - 1:
+                return True
+            tmp, board[i][j] = board[i][j], '/'
+            res = dfs(i + 1, j, k + 1) or dfs(i - 1, j, k + 1) or dfs(i, j + 1, k + 1) or dfs(i, j - 1, k + 1)
+            board[i][j] = tmp
+            return res
+
+        for i in range(len(board)):
+            for j in range(len(board[0])):
+                if dfs(i, j, 0): return True
+        return False
+
+
+STEPS = [
+    (1, 0),
+    (0, 1),
+    (-1, 0),
+    (0, -1),
+]
+
+class Solution3:
+    def exist(self, board: List[List[str]], word: str) -> bool:
+        S = word
+        L = len(S)
+        if L<=0: return True
+        W = board
+        N = len(W)
+        if N<=0: return False
+        M = len(W[0])
+        if M<=0: return False
+        B = [[True]*M for _ in range(N)]
+
+        def DFS(i, j, c):
+            if c+1>=L: return True
+
+            B[i][j] = False
+            for di, dj in STEPS:
+                ni = i+di
+                nj = j+dj
+                if 0<=ni<N and 0<=nj<M and B[ni][nj] and W[ni][nj]==S[c+1]:
+                    if DFS(ni, nj, c+1): return True
+            B[i][j] = True
+
+            return False
+
+        for i in range(N):
+            for j in range(M):
+                if W[i][j]==S[0]:
+                    if DFS(i, j, 0): return True
+
+        return False
+
 if __name__ == '__main__':
     s = Solution().exist
     board = [
