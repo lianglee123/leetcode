@@ -31,6 +31,7 @@ def serialize(node):
                 nextLevel.append(n.right or None)
         if any(i is not None for i in nextLevel ):
             q.extendleft(nextLevel)
+            print(q)
             levelCount = len(nextLevel)
     for i in range(len(res)-1, -1, -1):
         if res[i] == None:
@@ -77,6 +78,7 @@ def drawtree(root):
     draw(root, 0, 30*h, 40*h)
     t.hideturtle()
     turtle.mainloop()
+
 
 if __name__ == '__main__':
     # drawtree(deserialize('[1,2,3,null,null,4,null,null,5]'))
