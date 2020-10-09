@@ -7,13 +7,13 @@ class Solution:
         if n == 0:
             return []
         res = []
-        nums = [0] * n
+        nums = [''] * n
         self.dfs(res, nums, 0)
         res[0] = "0"
-        return res
+        return res[1:]
 
     def dfs(self, res, nums, n):
-        if len(nums) == n:
+        if n == len(nums):
             res.append("".join(nums).lstrip("0"))
             return
         for i in range(10):
@@ -21,6 +21,9 @@ class Solution:
             self.dfs(res, nums, n+1)
 
 
+class Solution2:
+    def printNumbers(self, n: int) -> List[int]:
+        return list(range(n))
 if __name__ == '__main__':
     s = Solution().printNumbers
     print(s(0))

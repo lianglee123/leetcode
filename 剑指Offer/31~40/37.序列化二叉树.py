@@ -66,6 +66,12 @@ class Codec:
 
 if __name__ == '__main__':
     from utils import deserialize, serialize, drawtree
-    n = Codec().deserialize("[5,2,3,null,null,2,4,3,1]")
+    # n = Codec().deserialize("[5,2,3,null,null,2,4,3,1]")
+    # drawtree(n)
+    # print(Codec().serialize(n))
+    n = Codec().deserialize("[1,2,3,null,null,4,5]")
     drawtree(n)
-    print(Codec().serialize(n))
+    n_str = Codec().serialize(n)
+    print(n_str)
+    n = Codec().deserialize(n_str)
+    drawtree(n)
