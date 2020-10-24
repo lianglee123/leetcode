@@ -58,12 +58,17 @@ class Trie:
 
 
 
+# Your Trie object will be instantiated and called as such:
+# obj = Trie()
+# obj.insert(word)
+# param_2 = obj.search(word)
+# param_3 = obj.startsWith(prefix)
 if __name__ == '__main__':
     obj = Trie()
     word = "hello"
     prefix = "he"
     obj.insert("apple")
-    obj.insert("apple")
+    obj.insert("hello")
     param_2 = obj.search(word)
     param_3 = obj.startsWith(prefix)
     print(param_2, param_3, obj.startsWith("bi"), obj.search("cc"))
