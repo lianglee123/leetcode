@@ -29,7 +29,7 @@ class Solution:
 class Solution2:
     def permuteUnique(self, nums):
         res = []
-        nums.sort()
+        nums.partition_sort()
         used = [False]*len(nums)
         self.backTrack(res, nums, [], used)
         return res

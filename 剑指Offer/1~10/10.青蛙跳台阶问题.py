@@ -1,13 +1,16 @@
 from typing import *
 
+
 class Solution:
-    def numWays(self, n: int) -> int:
-        if n <= 1:
+    def numWays(self, n):
+        if not n:
             return 1
-        pre = 0
-        cur = 1
-        for i in range(2, n+2):
-            cur, pre = cur + pre, cur
+        if n <= 2:
+            return n
+        pre = 1
+        cur = 2
+        for i in range(3, n+1):
+            cur, pre = cur+pre, cur
         return cur
 
 if __name__ == '__main__':

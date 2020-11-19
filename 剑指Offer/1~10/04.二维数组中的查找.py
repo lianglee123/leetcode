@@ -1,5 +1,10 @@
 from typing import List
-
+"""
+如果使用r=0， c=len(matrix[0]) - 1
+如果m[r][c] > target, 那么该列可以排除在外
+如果m[r][c] < target, 那么该行可以排除在外
+这种搜索方法，是从右上交开始的。
+"""
 
 class Solution:
     def findNumberIn2DArray(self, matrix: List[List[int]], target: int) -> bool:

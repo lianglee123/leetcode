@@ -39,7 +39,7 @@ class Solution2:
     def helper(self, preorder: List[int], l, r, inorder):
         if self.i < len(preorder):
             root = TreeNode(preorder[self.i])
-            j = self.indexMap[preorder[self.i]]
+            j = self.indexMap[preorder[self.i]]  # 根节点在中序列表中的索引
             if l < j:
                 self.i += 1
                 root.left = self.helper(preorder, l, j, inorder)

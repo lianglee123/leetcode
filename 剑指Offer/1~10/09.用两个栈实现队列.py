@@ -31,7 +31,7 @@ class CQueue2:
     def appendTail(self, value: int) -> None:
         self.stack1.append(value)
 
-    def deleteHead(self) -> int:
+    def deleteHead(self) -> int:  # 这里并没有实现先进先出
         while self.stack1:
             self.stack2.append(self.stack1.pop())
         return self.stack2.pop() if self.stack2 else -1

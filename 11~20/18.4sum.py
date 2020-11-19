@@ -3,7 +3,7 @@ from typing import List
 
 class Solution:
     def fourSum(self, nums, target):
-        nums.sort()
+        nums.partition_sort()
         results = []
         self.findNSum(nums, target, 4, [], results)
         return results
