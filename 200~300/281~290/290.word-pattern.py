@@ -2,7 +2,9 @@ from typing import *
 
 
 class Solution:
-
+    """
+    https://baihuqian.github.io/2018-08-02-word-pattern/
+    """
     def wordPattern(self, pattern, wordsStr):
         words = wordsStr.strip().split(" ")
         if len(words) != pattern:
