@@ -42,6 +42,30 @@ class Solution2:
         return ans
 
 
+class Solution3:
+    def numTrees(self, n):
+        """
+        :type n: int
+        :rtype: int
+        """
+        G = [0]*(n+1)
+        G[0], G[1] = 1, 1
+
+        for i in range(2, n+1):
+            for j in range(1, i+1):
+                G[i] += G[j-1] * G[i-j]
+
+        return G[n]
+class Solution4:
+    """
+    直接使用卡塔兰数
+    """
+    def numTrees(self, n):
+        pass
+
+
+
+
 if __name__ == '__main__':
     s = Solution2().numTrees
     print(s(3))

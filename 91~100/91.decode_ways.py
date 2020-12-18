@@ -22,13 +22,10 @@ Practice them in a row for better understanding """
         elif l == 1:
             return 1
         else:
-            if s.startswith('0'):
-                return 0
+            if s[:2] in self.validDouble:
+                return self.numDecodings(s[2:]) + self.numDecodings(s[1:])
             else:
-                if s[:2] in self.validDouble:
-                    return self.numDecodings(s[2:]) + self.numDecodings(s[1:])
-                else:
-                    return self.numDecodings(s[1:])
+                return self.numDecodings(s[1:])
 
 
 class Solution2:

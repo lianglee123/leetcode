@@ -31,6 +31,7 @@ class Solution2:
     """
     def hIndex(self, citations: List[int]):
         if not citations: return 0
+        citations.sort()
         n = len(citations)
         for i in range(n):
             if citations[i] >= n-i:  # 因为排过序了，所以不用在想第一步那样求temp
@@ -73,4 +74,6 @@ class Solution4:
         return n-l
 
 
-
+if __name__ == '__main__':
+    s = Solution2().hIndex
+    print(s([1, 2, 2, 2, 3, 3, 3, 4, 4, 4,4]))

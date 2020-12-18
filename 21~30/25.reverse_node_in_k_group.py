@@ -50,10 +50,8 @@ class Solution:
         return head
 
 
-
-
 if __name__ == '__main__':
-    s = Solution().swapPairs
+    s = Solution().reverseKGroup
     r = s(Utils.array_to_node([1, 2, 3, 4, 5, 6]))
     Utils.print(r)
     r = s(Utils.array_to_node([1,]))

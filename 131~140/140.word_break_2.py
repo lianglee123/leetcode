@@ -1,6 +1,9 @@
 from typing import *
 
 class Solution:
+    """
+    139
+    """
     def wordBreak(self, s: str, wordDict: List[str]) -> bool:
         dict = set(wordDict)
         memo = {}

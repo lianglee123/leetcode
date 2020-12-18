@@ -1,0 +1,60 @@
+-[1][Easy]两数之和
+HashMap, 双指针
+
+-[3][Easy]无重复字符的最长字串
+
+-[30][Hard]串联所有单词的字串
+这个我首先想到的是字典树加快匹配，但是限制条件是所有单词长度相同，所以用不上字典树。
+这题一个很重要的优化点在于，如何不用对比每个HashMap
+维护一个count
+
+
+-[36][Medium]有效的数独
+checkRow, checkColumn, checkSquare, 但是这三个check可以放到一起。
+
+-[37][Hard]解熟数独
+直觉上，这道题应该用回溯。
+其实也就是回溯，只是用到了HashMap
+
+-[49]字母异位词分组
+hash分组。
+
+-[76][Hard]最小覆盖字串
+https://leetcode-cn.com/problems/minimum-window-substring/solution/tong-su-qie-xiang-xi-de-miao-shu-hua-dong-chuang-k/
+
+-[136][Easy]只出现一次的数字
+ 1. hashMap  2.位运算。异或运算支持交换律
+
+-149[Hard]直线上最多的点数
+斜率和Map
+
+-166[Medium]分数到小数
+使用Map监控又碰到以前的数的了。
+
+-187[Medium]重复DNA序列
+自定义快速Hash函数
+
+-202[Easy]快乐数
+1.使用链表检测环的方法
+2.使用HashMap
+
+-204[Easy]计数质数
+- 暴力检测
+- 埃氏筛法
+
+-205[Easy]同构字符串
+ - Map
+ - indexOf
+
+-217[Easy]存在重复元素
+ - Map
+ - Index
+ - len(Set) != len(List)
+ - sort and nums[i] != nums[i-1]
+
+-219[Easy]存在重复元素ii
+ - 滑动窗口 + HashSet
+ - sort by value and index, and iter
+
+-242[Easy]字母异位词
+ - sortted(list(s)) == sorted(list(t))

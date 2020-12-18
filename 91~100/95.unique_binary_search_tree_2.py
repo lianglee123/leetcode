@@ -84,6 +84,11 @@ class Solution:
 
 
 class Solution2:
+    """
+    击败5.3%的用户。。。。
+    只要去掉deepCopy, 就变为93%了，本来也不需要deepCopy
+    如果觉得要用deepCopy，说明你并没有理解。生成的树之间也并没有共用节点。
+    """
     def generateTrees(self, n: int) -> List[TreeNode]:
         if n == 0:
             return []

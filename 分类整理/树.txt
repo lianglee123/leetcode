@@ -1,0 +1,10 @@
+
+
+-[109][Medium]有序链表转换二叉搜索树
+用分治是基本解法，但是用中序遍历+分治才是完全正确的解法
+这个题属于二叉树
+
+-[94][Medium]二叉树的中序遍历
+1. 递归，没啥技术含量。
+https://leetcode-cn.com/problems/binary-tree-inorder-traversal/solution/yan-se-biao-ji-fa-yi-chong-tong-yong-qie-jian-ming/
+颜色标记法，厉害了，我的哥

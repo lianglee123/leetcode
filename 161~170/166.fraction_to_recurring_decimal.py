@@ -39,9 +39,11 @@ class Solution2:
         while rem != 0:
             if rem in recorder:
                 idx = recorder[rem]
+                print(recorder, res)
                 return res[0:idx] + "(" + res[idx:] + ")"
             else:
                 recorder[rem] = len(res)
+            print(recorder, res)
             n, rem = divmod(rem*10, den)
             res += str(n)
         return res
@@ -70,12 +72,12 @@ if __name__ == '__main__':
     # print(s(100, 100))
     # print(s(100, 100))
 
-    s2 = Solution3().fractionToDecimal
-    print(s2(29, 99))
-    print(s2(10, 3))
-    print(s2(100, 100))
-    print(s2(1, 3))
-    print(s2(11, 100))
-    print(s2(1, 10000))
-    print(s2(0, 10000))
+    s2 = Solution2().fractionToDecimal
+    # print(s2(29, 99))
+    print(s2(100, 3))
+    # print(s2(100, 100))
+    # print(s2(1, 3))
+    # print(s2(11, 100))
+    # print(s2(1, 10000))
+    # print(s2(0, 10000))
 

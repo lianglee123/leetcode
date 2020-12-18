@@ -16,7 +16,9 @@ class Solution:
                 elif nums[k]+nums[j] < target:
                     j += 1
                 else:
-                    res.add((nums[i], nums[j], nums[k]))
+                    res.add((nums[i], nums[j], nums[k])) # 这种情况会陷入死循环
+
+
         return list(res)
 
 
@@ -24,7 +26,7 @@ class Solution2:
     def threeSum(self, nums: List[int]) -> List[List[int]]:
         nums.sort()
         length = len(nums)
-        res = []  # 这种可以去重的方法是低效的，情况Solution2
+        res = []
         for i in range(length):
             l = i+1
             r = length-1
@@ -48,5 +50,5 @@ class Solution2:
 
 
 if __name__ == '__main__':
-    s = Solution2().threeSum
-    print(s([-6, 2, 2, 2, 4, 4, 4]))
+    s = Solution().threeSum
+    print(s([-6, 1, 1, 2, 3, 4, 5, 5]))

@@ -19,7 +19,7 @@ class Solution:
         """
         if not board:
             return
-        self.backTrace(board, 0, 0)
+        self.backTrace(board)
 
     def backTrace(self, board) -> bool:
         # print("row_start, col_start", row_start, col_start )

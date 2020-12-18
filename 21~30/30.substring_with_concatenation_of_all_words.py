@@ -13,7 +13,7 @@ class Solution:
             else:
                 count_map[w] = 1
 
-        w_l = len(words[0]) if len(words) > 0 else 0
+        w_l = len(words[0])
         target_l = w_l * len(words)
 
         i = 0

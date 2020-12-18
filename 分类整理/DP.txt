@@ -1,0 +1,239 @@
+注意：很多题可以用多种算法思想解决，Leetcode上的标签并不能很好的概括
+
+### 动态规划：
+#### Easy
+- 5. 最长回文字符串
+    看到这道题的第一眼，我直觉上能知道这道题有两种解法：
+     - 动态规划
+     - 左右扩展法
+    动态规划dp[i,j] = true, 则if str[i-1]==str[j+],
+    dp[i-1, j+1] = true,关键是实现时，如何确定起始位置
+    另外从[i,j]开始扩展和从[i,i]开始扩展，是两种不同的情况，
+    都需要考虑
+    另外一种：Manacher算法，能把复杂度降到O(n),我也去不再学习了
+
+- 10: [hard]. 和* 的正则式匹配
+
+- 32. [hard]最长有效括号
+   直觉上是用DP或栈（括号的问题总是和栈有联系）
+   用DP, 就要找推导式。(我觉得核心是找一个最优子问题)
+   dp[i]定义为以s[i]结尾的最长合法。。。
+   if s[i] == '(', dp[i]=0
+   if s[i] == ')':
+        if s[i-1] == '(':
+            dp[i] = dp[i-2] + 2
+        if s[i-1] == ')':
+            if s[i-dp[i-1]-1] == '(':
+                dp[i] = dp[i-1] + 2 + dp[i-dp[i-1]-2]
+            else:
+                dp[i] = 0
+
+
+- 44. [Hard]通配符匹配
+    和第10题解法相同
+
+- 53. [Easy]最大子序列和
+    用DP，使用f(i)代表以nums[i]结尾的最大连续子数组和
+    if nums[i] + f[i-1] > f[i-1]:
+        f[i] = f[i-1] + nums[i]
+    else:
+        f[i] = nums[i]
+    然后可以压缩状态
+
+- 62. [Medium]不同路径
+    DP, f(i, j) = f(i-1, j) + f(i, j-1)
+    可以把状态压缩为一行
+
+- 63. [Medium]不同路径(有障碍物版)。和62题相同，只不过考虑下障碍物即可。
+
+- 64. [Medium]最小路径和。和63题相同
+
+- 70. [Easy]爬楼梯。最简单的DP题，斐波那契数列。
+
+- 72. [Hard]编辑距离。一旦知道DP是记忆化的递归，就很简单了。
+
+- 85. [Hard]最大矩形。如果想一步解决这个就挺难的。如果把这个问题使用DP
+转化为求柱状图的最大矩形面积，就简单了下来。虽然求柱状图的最大矩形面积也是挺难的。转化为84题
+当然也可以一步DP解决。参考最大正方形，就是不知道对不对。需验证。
+
+- [87].[Hard] 扰乱字符串。
+递归，然后加Memo, 那种直接用DP数组的方法我是没办法理解了。
+
+- [91]. [Medium] 解码方法
+这道题，直觉上我认为应该用回溯。但如果用DP的话，和青蛙跳楼梯那道题的
+思路其实是一样的。唯一的不同，青蛙可以随机选择跳1或2，但是这里想跳1或2有条件限制。
+dp[i]表示以i结尾的字符串的解码方法个数。
+if s[i-1] is between [1, 9]:
+    dp[i] += dp[i-1]
+if s[i-2]+s[i-1] is valid double:
+    dp[i] += dp[i-1]
+return dp[n], 最后还可以压缩状态
+
+- [95]. [Medium] 所有的二叉搜索树
+感觉是排列组合的问题。递归解决，不知道为何要用到DP，因为数据都是要再复制一遍的。
+所有组合的中序遍历，都是相同的有序数组。
+看了答案，我有了疑惑(惊醒），不加Memo的递归也是DP！！！因为DP的实质只是拆分成子问题。
+
+
+
+- [96]. [Medium] 所有的二叉搜索树(统计个数)
+这个问题很简单，怎么实现我不管。
+dp[i] = (dp[0] + dp[i-1]) + (dp[1]+dp[i-2]) + (dp[2] + dp[i-3]) + ...
+由此，两层迭代即可。
+
+
+- [97][Hard]交错字符
+先回归DP, 再Memo, 那种直接用数组的DP,是对问题有更深的理解。我无法做到，我只能
+乱拳打死老师傅。
+
+- [115][Hard]不同的子序列
+依然是先回归DP再Memo. 解法和97题相同。
+
+- [120][Medium]三角形的最小路径和
+这道题思想上挺简单的，是不过实现上有很多tricky
+
+- [121][Easy]买卖股票的最佳时机
+说实话，我看不到这道题和dp有什么关系。如果非要说有关的话，就是求min(price[:i])时会用到dp.
+假设你要在第i天卖股票，那么最大收益是price[i] - min(price[:i])
+另外https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/solution/c-li-yong-shao-bing-wei-hu-yi-ge-dan-diao-zhan-tu-/
+这个用户强行用了单调栈，单调栈用于用 O(n)O(n) 的时间得知所有位置两边第一个比他大(或小)的数的位置。
+可以加深理解单调栈了。
+
+- [123][Hard]买卖股票的最佳时机iii
+我一脸懵逼呀，这个和DP有什么关系。
+https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-iii/solution/cong-zuo-dao-you-zai-cong-you-dao-zuo-sao-liang-bi/
+这个做法，非常复合直觉，易于理解，但是如果要求交易三次呢？
+https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii/discuss/39608/A-clean-DP-solution-which-generalizes-to-k-transactions
+这个做法，可以通用为K个交易。
+我能理解到：(NightZ3R0的做法)
+// dpProfit[t][i]: maximum Profit using at most t transactions up to day i (including day i)
+// dpProfit[t][i] = max(dpProfit[t][i - 1], prices[i] - prices[j] + dpProfit[t - 1][j]) for all j in range [0, i - 1]
+//                = max(dpProfit[t][i - 1], prices[i] + max(dpProfit[t - 1][j] - prices[j])) for all j in range [0, i - 1]
+//                = max(dpProfit[t][i - 1], prices[i] + max prev [t - 1] trans profit at the corresponding j in range [0, i - 1] less price at j)
+//                                                      maxPreProfitLessI inside loop iterations
+//                                                      Note: subtracting price at j is for the last additional transaction to sell at day i
+因此，我可以用Memo的做法了。
+
+- [132][Hard]分割回文字符串ii
+其姊妹题，我的直觉：
+先使用DP求出字符串中的回文字符串，然后使用使用DFS，找出所有。当然也
+可以不用DP,那样效率有点低。
+所以第132要求最小的分割次数，可以依然使用131道题的做法，只不过效率可能有点低。
+首先最大的切割次数为len(str)-1。其实也是简单的DP, 只不过时两层dp
+第一层dp用来解析回文字符串的位置，第二层dp用来求最小切割次数，这两个dp是独立的。
+使用dp[i]表示str[i]的最小切割次数。
+dp[i] =
+max(isPalinedrome(j,i) and dp[j-1] + 1) j in [0, i]
+
+- [139][Medium]单词拆分
+dp[i]表示从[0, i]的字符串是否能被拆分。
+dp[i] = any(dp[j-1] and str(j,i) in dic for j in range(i)), 注意优化点在于
+j的长度应该是最长单词的长度。
+这道题也能用回溯，回溯+Memo的方法。也能使用线段树。
+- [140][Hard]单词拆分
+上一个单纯求是否，这一个要求所有结果。这个我依然觉得应该用记忆化回溯。
+不过记忆化的回溯不就是DP吗
+
+- [152][Medium]乘积最大子数组
+还真没思路。
+这里碰到了一个DP里很重要的概念：无后效性。
+动态规划，关心结果。回溯关心过程。
+无后效性：百度百科解释：无后效性是指如果在某个阶段上过程的状态已知，则从此阶段以后过程的发展变化仅与此阶段的状态有关，
+而与过程在此阶段以前的阶段所经历过的状态无关。利用动态规划方法求解多阶段决策过程问题，过程的状态必须具备无后效性。
+这道题的最大值不是由上一步的最大值来的，而是可能有最大值或者最小值来的。
+(无后效性的练习)https://leetcode-cn.com/problems/maximum-product-subarray/solution/dong-tai-gui-hua-li-jie-wu-hou-xiao-xing-by-liweiw/
+
+- [174][Hard]地下城游戏
+这个没有Hard吧，只是一个最小阻力路径问题。
+我操，不是最小阻力路径问题，而需要考虑路径的问题，不能在路上把英雄饿死了呀。
+方法为把状态定义为从dp[i][j]到达终点所需的总点数。
+倒着推即可。这题也能用回溯。
+https://leetcode-cn.com/problems/dungeon-game/solution/cong-hui-su-dao-ji-yi-hua-sou-suo-dao-dong-tai-gui/
+看看这个回溯的做法的，所有的dp都能用递归+Memo解决，但是能递归的不一定能用dp
+
+
+- [188][Hard]买卖股票的最佳时机：如123的解法。
+
+-[198][Easy]打家劫舍
+dp[i]为偷窃到第i家房子的最大收益：
+选择偷i: dp[i]=dp[i-2] + nums[i]
+选择不偷i: dp[i] = dp[i-1]
+所以dp[i] = max(dp[i-2]+nums[i], dp[i-1])
+
+- [213][Medium]打家劫舍ii
+把这道问题转化为两个198题即可。
+让第一个房屋和最后一个房屋相连，其实是破坏了dp的无后效性。
+
+- [221][Medium]最大正方形
+dp[i][j]为以（i,j)为右下角的最大的正方形边长
+if m[i,j] = 1:
+    dp[i][j] = 1 + min(dp[i-1, j], dp[i-1, j-1], dp[i, j-1])
+else: 0
+
+-[256][Medium]粉刷房子
+这个题是三种颜色，比较简单。
+
+-[264][Medium]丑数ii
+把一个问题拆为三个线性dp维度部分然后再合并。
+
+-[265][Hard]粉刷房子ii
+
+-[276][Easy]栅栏涂色
+也是把一个问题拆为三个线性的dp问题，而且这三个是问题是相关的。
+
+-[279][Medium]完全平方数
+从底往上推，推出那个是那个。
+
+-[300][Medium]最长上升子序列
+dp[i]表示以dp[i]结尾的最长序列长度。
+直觉上，这道题还可以用单调栈来解,但是其实不能。
+但是这道题的一个O(NlgN)的巧思真是牛逼。
+
+-[剑指offer14-i][Medium]剪绳子
+dp[i]为长度为i的绳子能剪出的最大乘积
+dp[i] = max(j*(i-j), dp[i-j]), j属于[1, i)
+
+-[剑指offer14-ii][Medium]剪绳子ii
+取余定理: (xy)%p = ((x%p)*(y%p))%p
+根据取余定理：a[i] = a[i-3] * 3
+那么: a[i] % p
+= (3 * a[i-3]) % p
+= (3 * a[i-3]%p) %p
+所以可以使用题中的做法。
+
+-[剑指offer19][Hard]正则表达式匹配
+和第十题重复。
+-[剑指offer42][Easy]连续子数组的最大和
+dp[i]为以nums[i]结尾的连续子数组最大和
+dp[i] = max(nums[i], dp[i-1]+nums[i])
+
+-[剑指offer47]礼物的最大价值
+最大路径和的问题
+
+-[剑指offer63][Mdium]股票的最大利润
+dp[i]为在第i天卖的最大收益。
+dp[i]=max(0, prices[i]-curMin)
+
+
+-[面试题01.05]一次编辑
+字符串按序对比。
+
+
+
+#####
+链表问题
+
+### 单调栈的问题分类。
+https://leetcode-cn.com/problems/largest-rectangle-in-histogram/solution/bao-li-jie-fa-zhan-by-liweiwei1419/
+
+- [84]. [Hard]求柱状图的最大矩形面积。栈解决的。
+暴力的做法，找一个柱子向两边扩展
+使用单调栈到底维护了哪些信息，和暴力做法比起来
+
+- 背包九讲
+
+
+### 回溯
+- [139]
+- [140]
+- [174]

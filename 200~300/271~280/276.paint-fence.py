@@ -30,8 +30,3 @@ class Solution2:
         for i in range(2, n+1):
             same, diff = diff, (same + diff) * (k-1)
         return same + diff
-
-
-
-
-

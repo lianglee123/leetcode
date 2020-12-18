@@ -2,7 +2,7 @@ class Solution:
     # @param matrix, a list of lists of 1 length string
     # @return an integer
     def maximalRectangle(self, matrix):
-        if not matrix:
+        if not matrix or not matrix[0]:
             return 0
         h, w = len(matrix), len(matrix[0])
         m = [[0]*w for _ in range(h)]
