@@ -29,7 +29,7 @@ def serialize(node):
                 res.append(n.val)
                 nextLevel.append(n.left or None)
                 nextLevel.append(n.right or None)
-        if any(i is not None for i in nextLevel ):
+        if any(i is not None for i in nextLevel):
             q.extendleft(nextLevel)
             print(q)
             levelCount = len(nextLevel)
@@ -55,6 +55,9 @@ def deserialize(string):
     return root
 
 
+import turtle
+
+
 def drawtree(root):
     def height(root):
         return 1 + max(height(root.left), height(root.right)) if root else -1
@@ -70,9 +73,9 @@ def drawtree(root):
             draw(node.left, x-dx, y-60, dx/2)
             jumpto(x, y-20)
             draw(node.right, x+dx, y-60, dx/2)
-    import turtle
     t = turtle.Turtle()
-    t.speed(0); turtle.delay(0)
+    t.speed(0)
+    turtle.delay(0)
     h = height(root)
     jumpto(0, 30*h)
     draw(root, 0, 30*h, 40*h)

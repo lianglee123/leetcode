@@ -56,7 +56,7 @@ class Solution:
 class Codec:
 
     """
-    leetcode上的大神StefanPochmann的答案,他的方案和Solution1是补营养的，
+    leetcode上的大神StefanPochmann的答案,他的方案和Solution1是不一养的，
     他采用的是深度优先
     https://leetcode.com/problems/serialize-and-deserialize-binary-tree/discuss/74259/Recursive-preorder-Python-and-C%2B%2B-O(n)
     注意：工具库里的deserialize也是这位大神的杰作。
@@ -77,8 +77,16 @@ class Codec:
     def deserialize(self, data: str):
         if not data:
             return None
-        values = data.split(",")
-        root = TreeNode(int(values[0]))
+        return self._d(iter(data.split(",")))
+
+    def _d(self, _iter):
+        val = next(_iter)
+        if val == "null":
+            return None
+        r = TreeNode(int(val))
+        r.left = self._d(_iter)
+        r.right = self._d(_iter)
+        return r
 
 
 if __name__ == '__main__':

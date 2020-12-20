@@ -38,7 +38,7 @@ class Solution:
             node.right = right_head
             return node, right_tail
         else:
-            node.left = None
+            # node.left = None
             return node, node
 
 

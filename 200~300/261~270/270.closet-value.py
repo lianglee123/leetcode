@@ -26,7 +26,7 @@ class Solution2:
     """
     """
     def closestValue(self, root: TreeNode, target):
-        res = root.val
+        return self.helper(root, target, root.val)
 
     def helper(self, root, target, val):
         if not root: return val

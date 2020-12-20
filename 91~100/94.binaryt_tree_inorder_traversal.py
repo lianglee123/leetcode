@@ -44,3 +44,32 @@ class Solution:
             res.append(cur.val)
             cur = cur.right
         return res
+
+
+class Solution2:
+    def inorderTraversal(self, root: TreeNode) -> List[int]:
+        if not root:
+            return []
+        WHITE, GRAY = 0, 1
+        res = []
+        stack = [(WHITE, root)]
+        while stack:
+            color, node = stack.pop()
+            if node is None: continue
+            if color == WHITE:
+                if node.right is not None:
+                    stack.append((WHITE, node.right))
+                stack.append((GRAY, node))
+                if node.left is not None:
+                    stack.append((WHITE, node.left))
+            else:
+                res.append(node.val)
+        return res
+
+
+if __name__ == '__main__':
+    from utils import serialize, deserialize, drawtree
+    tree = deserialize("[[1,null,2,3]]")
+    # drawtree(tree)
+    s = Solution2().inorderTraversal
+    print(s(tree))
